@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-06-phonebook",
+  "name": "goit-react-hw-07-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Vitalii-Khivrych.github.io/goit-react-hw-06-phonebook/",
+  "homepage": "https://Vitalii-Khivrych.github.io/goit-react-hw-07-phonebook/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.3",
@@ -12,8 +12,10 @@
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-loader-spinner": "^5.3.3",
     "react-redux": "^8.0.2",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.0.8",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.3"

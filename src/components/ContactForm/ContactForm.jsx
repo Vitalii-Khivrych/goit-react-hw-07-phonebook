@@ -1,24 +1,27 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { nanoid } from 'nanoid';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useLocalStorage } from 'hooks/useLocalStorage';
-import { addContacts } from 'redux/contactsSlice';
-import { getContactsItems } from 'redux/selectors';
+import {
+  useAddContactMutation,
+  useGetContactsQuery,
+} from 'redux/contactsSlice';
+import optionsNotify from 'helpers/toastConfig';
+
 import {
   SearchForm,
   SearchLabel,
   SearchInput,
   SearchBtn,
 } from './ContactForm.styled';
+import { LoaderCreate } from 'components';
 
 export function ContactForm() {
   const [name, setName] = useLocalStorage('name', '');
   const [number, setNumber] = useLocalStorage('number', '');
-  // const [name, setName] = useState('');
-  // const [number, setNumber] = useState('');
 
-  const contacts = useSelector(getContactsItems);
-  const dispatch = useDispatch();
+  const { data: contacts = [] } = useGetContactsQuery();
+  const [addContact, { error, isLoading }] = useAddContactMutation();
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -28,14 +31,15 @@ export function ContactForm() {
     );
 
     if (isFindCopyContact) {
-      alert(`${name} is already in contacts`);
+      toast.info(`${name} is already in contacts`, optionsNotify);
       return;
     }
 
-    const newContact = { id: nanoid(), name, number };
-
-    dispatch(addContacts(newContact));
+    const newContact = { name, number };
+    addContact(newContact);
     reset();
+
+    error && toast.warning(`${error}`, optionsNotify);
   };
 
   const reset = () => {
@@ -70,7 +74,9 @@ export function ContactForm() {
         />
       </SearchLabel>
 
-      <SearchBtn type="submit">Add contact</SearchBtn>
+      <SearchBtn type="submit" disabled={isLoading}>
+        {isLoading ? <LoaderCreate /> : 'Add contact'}
+      </SearchBtn>
     </SearchForm>
   );
 }

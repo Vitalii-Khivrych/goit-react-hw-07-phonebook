@@ -27,6 +27,11 @@ ul {
   list-style: none;
 }
 
+ol {
+  margin: 0;
+  padding: 0;
+}
+
 img {
   display: block;
   max-width: 100%;

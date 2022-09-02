@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 import { ContactForm, Filter, ContactList } from 'components';
-import { getContactsItems } from 'redux/selectors';
+import { useGetContactsQuery } from 'redux/contactsSlice';
 
 export function App() {
-  const contacts = useSelector(getContactsItems);
+  const { data: contacts = [] } = useGetContactsQuery();
 
   return (
     <>
@@ -13,6 +13,19 @@ export function App() {
       {contacts.length > 0 && <h2>Contacts</h2>}
       {contacts.length > 1 && <Filter />}
       <ContactList />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={'colored'}
+      />
     </>
   );
 }

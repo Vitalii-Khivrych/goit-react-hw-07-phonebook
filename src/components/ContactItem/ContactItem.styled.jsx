@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Text = styled.p`
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 400;
 `;
 
 export const Button = styled.button`
