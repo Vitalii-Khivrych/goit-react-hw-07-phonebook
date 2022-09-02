@@ -1,7 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 
 import { ContactForm, Filter, ContactList } from 'components';
-import { useGetContactsQuery } from 'redux/contactsSlice';
+import { useGetContactsQuery } from 'redux/contacts/contactsSlice';
 
 export function App() {
   const { data: contacts = [] } = useGetContactsQuery();

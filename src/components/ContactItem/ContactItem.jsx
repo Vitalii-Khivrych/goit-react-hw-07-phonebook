@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { useDeleteContactMutation } from 'redux/contactsSlice';
+import { useDeleteContactMutation } from 'redux/contacts/contactsSlice';
 import { Text, Button } from './ContactItem.styled';
 import { LoaderDelete } from 'components';
 
@@ -23,8 +23,8 @@ export function ContactItem({ name, number, id }) {
   );
 }
 
-// ContactItem.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   number: PropTypes.string.isRequired,
-//   onClick: PropTypes.func.isRequired,
-// };
+ContactItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};

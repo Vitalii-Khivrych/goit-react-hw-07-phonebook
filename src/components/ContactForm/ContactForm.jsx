@@ -5,7 +5,7 @@ import { useLocalStorage } from 'hooks/useLocalStorage';
 import {
   useAddContactMutation,
   useGetContactsQuery,
-} from 'redux/contactsSlice';
+} from 'redux/contacts/contactsSlice';
 import optionsNotify from 'helpers/toastConfig';
 
 import {
@@ -37,6 +37,8 @@ export function ContactForm() {
 
     const newContact = { name, number };
     addContact(newContact);
+
+    toast.success(`Contact ${name} add.`, optionsNotify);
     reset();
 
     error && toast.warning(`${error}`, optionsNotify);
