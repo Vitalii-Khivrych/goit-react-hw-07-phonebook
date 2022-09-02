@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { useDeleteContactMutation } from 'redux/contacts/contactsSlice';
-import { Text, Button } from './ContactItem.styled';
+import { Text, Button, Wraper } from './ContactItem.styled';
 import { LoaderDelete } from 'components';
 
 export function ContactItem({ name, number, id }) {
@@ -9,9 +9,11 @@ export function ContactItem({ name, number, id }) {
 
   return (
     <>
-      <Text>
-        {name}: {number}{' '}
-      </Text>
+      <Wraper>
+        <Text>{name}:</Text>
+        <Text>{number}</Text>
+      </Wraper>
+
       <Button
         type="button"
         disabled={isLoading}

@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 
 export const Text = styled.p`
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
+`;
+
+export const Wraper = styled.div`
+  width: 310px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const Button = styled.button`

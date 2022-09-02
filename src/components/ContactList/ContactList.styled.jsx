@@ -7,7 +7,7 @@ export const List = styled.ul`
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
 
   :last-child {
     margin-bottom: 0;
